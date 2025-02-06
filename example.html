@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        const numbers=[1,2,3,4,5,6,7,8,9];
+        const num1=[11,12,13,14,15];
+        const newnum=[...numbers];
+        const arr1=[...numbers,...num1];
+        console.log(arr1);
+        // console.log(newnum);
+        const arr2=[100,...numbers,200];
+        console.log(arr2);
+        const person={name:'mashoor',age:22,place:'vadakara'};
+        const person1={...person}
+        console.log(person1);
+        const person2={email:"jhdsjd",pin:673308};
+        const newperson={...person,...person2};
+        console.log(newperson);
+        const newperson2={...newperson,place:'chombsls',phone:1234556}
+        console.log(newperson2);
+        const nums=[22,33,44,10]
+        function sum(a,b,c,d){
+            return a+b+c;
+        }
+        console.log(sum(...nums))
+
+        function displayUser({name,age}){
+            console.log(`user: ${name} age in ${age}`)
+        }
+        const user={name:'mashoor',age:55}
+        displayUser(user);
+
+        // map-->
+        const arr3=[1,2,3,4,5];
+        const doublearr=arr3.map(num=>num*2);
+        console.log(doublearr);
+        // filter--------------->
+        
+        const evenArray=arr3.filter(num=>num%2==0);
+        console.log(evenArray);
+
+        //reduce------------>
+
+        const sum1=arr3.reduce((acc,num)=>acc+num,0);
+        console.log(sum1);
+
+        //recursion------------(function calls itself)>
+
+        function factorial(n){
+            if (n==1){
+                return 1;
+            }
+            return n*factorial(n-1)
+        }
+
+        //promise(asynch)------->
+
+        const mypromise=new Promise((resolve,reject)=>{
+            let sucuess=true;
+            setTimeout(() => {
+                if (sucuess){
+                    resolve("operation succsessful")
+                }
+                else{
+                    reject("operation failed");
+                }
+
+            }, 2000);
+        })
+
+        // mypromise.then((data)=>{
+        //     console.log(data);
+        // })
+        // .catch((error)=>{
+        //     console.log(error);
+        // })
+        // .finally(()=>{
+        //     console.log('promise completed')
+        // })
+        const responses=mypromise;
+        console.log(responses);
+
+        async function demoFun(){
+            try{
+                let response=await mypromise
+                let data=response;
+                console.log(data)
+            }
+            catch(error){
+                console.log(error);
+            }
+        }
+        demoFun();
+
+    </script>
+</body>
+
+</html>
